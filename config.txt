@@ -1,0 +1,59 @@
+!
+! Configuration for Switch 1 (sw1)
+!
+hostname sw1
+!
+! VLAN Configuration
+vlan 10
+  name AA
+exit
+vlan 20
+  name BB
+exit
+!
+! Interface Configuration for Access Ports
+interface range fa0/3 - 4
+  switchport mode access
+  switchport access vlan 10
+exit
+interface range fa0/5 - 6
+  switchport mode access
+  switchport access vlan 20
+exit
+!
+! Trunk Port Configuration
+interface range fa0/1 - 2
+  switchport mode trunk
+  channel-group 1 mode active
+exit
+!
+! Configuration for Switch 2 (sw2)
+!
+hostname sw2
+!
+! VLAN Configuration
+vlan 10
+  name AA
+exit
+vlan 20
+  name BB
+exit
+!
+! Interface Configuration for Access Ports
+interface range fa0/3 - 4
+  switchport mode access
+  switchport access vlan 10
+exit
+interface range fa0/5 - 6
+  switchport mode access
+  switchport access vlan 20
+exit
+!
+! Trunk Port Configuration
+interface range fa0/1 - 2
+  switchport mode trunk
+  channel-group 1 mode active
+exit
+!
+! End of configuration
+!
